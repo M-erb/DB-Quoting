@@ -13,7 +13,7 @@
 }
 .totals p {
   min-width: 3em;
-  min-height: 1em;
+  min-height: 24px;
 }
 
 .restore_script_wrap {

@@ -12,9 +12,9 @@
             <input
               type="checkbox"
               checklist-model="checkedFree.item"
-              checklist-value="freeitem.label"
+              checklist-value="freeitem"
               ng-click="isOneCheckedFree()"
-            /> {{freeitem.label}}
+            /> {{freeitem}}
           </label>
         </div>
         <div class="totals green_solid">
@@ -129,6 +129,15 @@
       <button class="btn btn_orange" ng-click="uncheckAll()">Reset</button>
     </div>
   </div>
+</div>
+
+<div class="page_section darkgray_solid">
+  <div class="page_wrap">
+    <div>
+      <button class="btn btn_orange" ng-click="testSweetAlert()">Check it!</button>
+    </div>
+  </div>
+
 </div>
 
 

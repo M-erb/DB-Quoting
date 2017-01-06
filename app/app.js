@@ -4,28 +4,20 @@ Contact: michael@erbwebdev.com
 Created: 9-1-2016
 =============================================================================*/
 
-var chatsApp = angular.module('ewdApp', ['ngclipboard','headroom','checklist-model','ngAnimate']);
+var quoteApp = angular.module('quoteApp', ['ngclipboard','headroom','checklist-model','ngAnimate','oitozero.ngSweetAlert']);
 
-chatsApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
+quoteApp.controller('mainCtrl', ['$scope', '$http', 'SweetAlert', function($scope, $http, SweetAlert){
+
+  $scope.testSweetAlert = function() {
+    SweetAlert.swal('look, it worked!', 'you see, just believeing can be enough', 'success')
+  }
+
 
   // Free items --------------------------------------------------------------
   $scope.freeItems = [
-    {
-      show: 'basic',
-      label:'Basic Contacts Fields (Deleted)'
-    },
-    {
-      show: 'owner_personNotes',
-      label:'Restore Owner Id/Person Notes'
-    },
-    {
-      show: '',
-      label:'Update merchant account on orders/subscriptions to Infusionsoft Payments'
-    },
-    {
-      show: '',
-      label: 'Deleted Campaigns'
-    }
+    'Basic Contacts Fields (Deleted)',
+    'Update merchant account on orders/subscriptions to Infusionsoft Payments',
+    'Deleted Campaigns'
   ]
 
   $scope.checkedFree = {
@@ -87,12 +79,14 @@ chatsApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
   // Large section items-----------------------------------------------------------
    $scope.largeSectionItems = [
-   'Basic Contact Fields (Updated)',
-   'Referral Partner Records',
-   'Opportunity Record',
-   'Tags (Deleted from System)',
-   'Tags (Removed from Contact)',
-   'Products',
+     'Restore Owner Id/Person Notes',
+     'Basic Contact Fields (Updated)',
+     'Referral Partner Records',
+     'Opportunity Record',
+     'Tags (Deleted from System)',
+     'Tags (Removed from Contact)',
+     'Products',
+     'Update orders/subscriptions to a different merchant account (Not Infusionsoft Payments)'
   ]
 
   $scope.checkedLargeSection = {
@@ -122,6 +116,12 @@ chatsApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
         break;
       case 6:
         $scope.quoteLargeSection = 1200;
+        break;
+      case 7:
+        $scope.quoteLargeSection = 1400;
+        break;
+      case 8:
+        $scope.quoteLargeSection = 1600;
         break;
       default:
         $scope.quoteLargeSection = 0;

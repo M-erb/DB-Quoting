@@ -96,7 +96,7 @@ main {
 	height: 100%;
 }
 .page_wrap {
-  width: 90%;
+  width: 80%;
   max-width: 70em;
   margin-left: auto;
   margin-right: auto;
@@ -136,8 +136,12 @@ footer {
 
 }
 @media only screen and (max-width:770px){
-
+	.page_wrap {
+	  width: 92%;
+	}
 }
 @media only screen and (max-width:400px){
-
+	.page_wrap {
+	  width: 98%;
+	}
 }
