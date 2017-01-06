@@ -1,112 +1,133 @@
 
 
 <div class="full_page_section">
-  <div class="page_wrap center_contnet">
-    <div class="section_title">
-      <h2>Step 1 of 3</h2>
-    </div>
-    <div class="flex_center">
-      <div class="checkboxes">
-        <label ng-repeat="freeitem in freeItems">
-          <input
-            type="checkbox"
-            checklist-model="checkedFree.item"
-            checklist-value="freeitem"
-            ng-click="isOneCheckedFree()"
-          /> {{freeitem}}
-        </label>
-      </div>
-      <div class="totals green_solid">
-        <p>{{free}}</p>
-      </div>
-    </div>
+  <div class="page_wrap section_title">
+    <h2>Step 1 of 3</h2>
   </div>
-
-  <div class="page_wrap center_contnet">
-    <div class="flex_center">
-      <div class="checkboxes">
-        <label ng-repeat="basic in basicItems">
-          <input
-            type="checkbox"
-            checklist-model="checkedBasic.item"
-            checklist-value="basic"
-            ng-click="isOneCheckedBasic()"
-          /> {{basic}}
-        </label>
-      </div>
-      <div class="totals green_solid">
-        <p>${{quoteBasic}}</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="page_wrap center_contnet">
-    <div class="flex_center">
-      <div class="checkboxes">
-        <label ng-repeat="order in orderItems">
-          <input
-            type="checkbox"
-            checklist-model="checkedOrder.item"
-            checklist-value="order"
-            ng-click="isOneCheckedOrder()"
-          /> {{order}}
-        </label>
-      </div>
-      <div class="totals green_solid">
-        <p>${{quoteOrder}}</p>
+  <div class="page_wrap">
+    <div class="checkboxe_wrap">
+      <div class="flex_center">
+        <div class="checkboxes">
+          <label ng-repeat="freeitem in freeItems">
+            <input
+              type="checkbox"
+              checklist-model="checkedFree.item"
+              checklist-value="freeitem.label"
+              ng-click="isOneCheckedFree()"
+            /> {{freeitem.label}}
+          </label>
+        </div>
+        <div class="totals green_solid">
+          <p>{{free}}</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="page_wrap center_contnet">
-    <div class="flex_center">
-      <div class="checkboxes">
-        <label ng-repeat="largeSectionItem in largeSectionItems">
-          <input
-            type="checkbox"
-            checklist-model="checkedLargeSection.item"
-            checklist-value="largeSectionItem"
-            ng-click="isOneCheckedLargeSection()"
-          /> {{largeSectionItem}}
-        </label>
-      </div>
-      <div class="totals green_solid">
-        <p>${{quoteLargeSection}}</p>
+    <div class="checkboxe_wrap">
+      <div class="flex_center">
+        <div class="checkboxes">
+          <label ng-repeat="basic in basicItems">
+            <input
+              type="checkbox"
+              checklist-model="checkedBasic.item"
+              checklist-value="basic"
+              ng-click="isOneCheckedBasic()"
+            /> {{basic}}
+          </label>
+        </div>
+        <div class="totals green_solid">
+          <p>${{quoteBasic}}</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="page_wrap center_contnet">
-    <div class="flex_center">
-      <div class="checkboxes">
-        <label ng-repeat="mergedContactsItem in mergedContactsItems">
-          <input
-            type="checkbox"
-            checklist-model="checkedMergedContacts.item"
-            checklist-value="mergedContactsItem"
-            ng-click="isOneCheckedMergedContacts()"
-          /> {{mergedContactsItem}}
-        </label>
-      </div>
-      <div class="totals green_solid">
-        <p>${{quoteMergedContacts}}</p>
+    <div class="checkboxe_wrap">
+      <div class="flex_center">
+        <div class="checkboxes">
+          <label ng-repeat="order in orderItems">
+            <input
+              type="checkbox"
+              checklist-model="checkedOrder.item"
+              checklist-value="order"
+              ng-click="isOneCheckedOrder()"
+            /> {{order}}
+          </label>
+        </div>
+        <div class="totals green_solid">
+          <p>${{quoteOrder}}</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="page_wrap center_contnet">
-    <div class="flex_center">
-      <div class="checkboxes">
-        <p>Total Quote</p>
-      </div>
-      <div class="totals green_solid">
-        <p>${{quoteBasic + quoteOrder + quoteLargeSection + quoteMergedContacts}}</p>
+    <div class="checkboxe_wrap">
+      <div class="flex_center">
+        <div class="checkboxes">
+          <label ng-repeat="largeSectionItem in largeSectionItems">
+            <input
+              type="checkbox"
+              checklist-model="checkedLargeSection.item"
+              checklist-value="largeSectionItem"
+              ng-click="isOneCheckedLargeSection()"
+            /> {{largeSectionItem}}
+          </label>
+        </div>
+        <div class="totals green_solid">
+          <p>${{quoteLargeSection}}</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="page_wrap center_contnet">
-    <button class="btn btn_orange" ng-click="uncheckAll()">Reset</button>
+    <div class="checkboxe_wrap">
+      <div class="flex_center">
+        <div class="checkboxes">
+          <label>
+            <input
+              type="checkbox"
+              checklist-model="checkedMergedContacts.item"
+              checklist-value="mergedContactsItem"
+              ng-click="isOneCheckedMergedContacts();"
+            /> {{mergedContactsItems}}
+          </label>
+        </div>
+        <div class="totals green_solid">
+          <p>${{quoteMergedContacts}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="center_contnet">
+      <div class="flex_center">
+        <div class="checkboxes me-input-group">
+          <label>
+            <span>Other</span>
+            <input
+              type="text"
+              ng-model="other1"
+              ng-change="hasALength()"
+            />
+          </label>
+          {{other1}}
+        </div>
+        <div class="totals green_solid">
+          <p>${{quoteOther1}}</p>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="checkboxe_wrap">
+      <div class="flex_center">
+        <div class="checkboxes">
+          <p>Total Quote</p>
+        </div>
+        <div class="totals green_solid">
+          <p>${{quoteBasic + quoteOrder + quoteLargeSection + quoteMergedContacts}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkboxe_wrap">
+      <button class="btn btn_orange" ng-click="uncheckAll()">Reset</button>
+    </div>
   </div>
 </div>
 
@@ -116,9 +137,79 @@
 
 <!-- STEP TWO OF THREE -->
 <div class="full_page_section">
-  <div class="page_wrap center_contnet section_two">
+  <div class="page_wrap section_two">
     <div class="section_title">
-      <h2>Step 1 of 3</h2>
+      <h2>Step 2 of 3</h2>
+    </div>
+    <div class="additional_questions_container">
+
+      <div class="me-input-group">
+        <label>
+          <span>Which records need to be restored? How would you search for them?*</span>
+          <textarea placeholder="example: contacts with id 1 and 3" ng-model="restoreContactsTxtarea" required rows="2" cols="10"></textarea>
+        </label>
+      </div>
+
+      <div class="me-input-group" ng-hide="showMerged">
+        <label>
+          <span>How were the contacts deleted?*</span>
+          <input type="text" placeholder="Example: done in contact search actions" ng-model="deleteActions"/>
+        </label>
+      </div>
+
+      <div class="me-input-group" ng-show="showMerged">
+        <label>
+          <span>How were the contacts merged?*</span>
+          <input type="text" placeholder="Example: done in contact search actions" />
+        </label>
+      </div>
+
+      <div class="me-input-group">
+        <label>
+          <span>Approved? by which database team member?</span>
+          <input type="text" placeholder="Example: Eric Mills" ng-model="teamMember" />
+        </label>
+      </div>
+
+      <div class="me-input-group type_date_group">
+        <label class="type_date">
+          <span>When was the data deleted/removed?*</span>
+          <input type="date" ng-model="dateDeleted" />
+        </label>
+        <label class="type_date">
+          <span>Time of day(if avalible)</span>
+          <input type="text" />
+        </label>
+        <label class="type_date">
+          <span>Time Zone(if avalible)</span>
+          <input type="text" />
+        </label>
+      </div>
+
+      <div class="me-input-group">
+        <label>
+          <span>Any Extra information</span>
+          <input type="text" placeholder="Example: Eric Mills is the best!" />
+        </label>
+      </div>
+
+      <div class="page_wrap checkboxe_wrap">
+        <div class="flex_center">
+          <div class="requried_checkboxes">
+            <label ng-repeat="item in requiredItems">
+              <input
+                type="checkbox"
+                checklist-model="checkedRequiredItems.item"
+                checklist-value="item"
+                ng-click="areAllCheckedRequiredItems()"
+              /> {{item}}
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
   </div>
 </div>
@@ -128,7 +219,7 @@
 
 <!-- STEP THREE OF THREE -->
 <div class="full_page_section green_solid">
-  <div class="page_wrap section_three">
+  <div class="page_wrap section_three" ng-show="showStepThree">
     <div class="section_title">
       <h2>Step 3 of 3</h2>
     </div>
@@ -140,6 +231,9 @@
         <div class="address_bar window_item"></div>
       </div>
       <div class="restore_script_wrap">
+        <p>Q: Which records need to be restored?</p>
+        <p>{{restoreContactsTxtarea}}</p>
+        <br />
         <p>Q: What data needs to be restored to the records? </p>
         <div>
           <span ng-repeat="items in checkedFree.item">{{items}}, </span>
@@ -150,13 +244,23 @@
         </div>
         <br />
         <p>Q: When was the data deleted/removed/altered/updated?</p>
+        <p>{{dateDeleted}}</p>
         <br />
-        <p>Q: *What actions were run to delete the data?</p>
+        <p>Q: What actions were run to delete the data?</p>
+        <p>{{deleteActions}}</p>
         <br />
         <p>Q: Approved by which Database Team Member?</p>
+        <p>{{teamMember}}</p>
         <br />
         <p>Q: Cost of restore?</p>
         <p>${{quoteBasic + quoteOrder + quoteLargeSection + quoteMergedContacts}}</p>
+        <br />
+        <p>Q: Accepted by customer?</p>
+        <p>Accepted by customer</p>
+        <br />
+        <p>Q: Confirmed billing information?</p>
+        <p>Last Four Digits: Confirmed</p>
+        <p>Billing Address: Confirmed</p>
         <br />
       </div>
     </div>

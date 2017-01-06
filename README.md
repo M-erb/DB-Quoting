@@ -1,10 +1,10 @@
-# databaseQuote
+# DB Quotes
 
-Generates a 'script' for database team to follow and work a restore request allow with generating quoted fees
+Auto generates pre-determined quotes for work being requested by customer. Also Generates a 'script' for a support rep to deliver to the DB team of requested work.
 
 ##How it works
 
-Fill out the checkboxes and fields and watch as the bottom section live fils it self out and is ready to copy
+Fill out the checkboxes and fields and watch as the bottom section live fills it self out and is ready to copy
 
 ##What makes it run?
 

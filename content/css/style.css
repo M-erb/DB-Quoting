@@ -44,9 +44,11 @@ h1 {
 .section_title {
 	font-weight: bold;
 }
+.section_title h2 {
+	padding: 1.5em 0;
+}
 h2 {
   font-size: 2em;
-  margin-bottom: 2em;
 }
 
 h3 {
@@ -61,16 +63,13 @@ h2 span a{
 p {
 	font-size: 1.1em;
 }
-label {
-	font-size: 1.1em;
-}
 /*wow*/
 .wow:first-child {
 	visibility: hidden;
 }
 /*-body*/
 body {
-  line-height: 1;
+  line-height: 1.4;
 	-webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 	position: relative;
@@ -110,14 +109,16 @@ main {
 .full_page_section {
   width: 100%;
   min-height: 100vh;
-  padding: 5em 0;
+  padding: 0 0 5em 0;
 	position: relative;
 }
-.center_contnet {
-	margin-left: auto;
-  margin-right: auto;
-	margin-top: 3em;
-	margin-bottom: 3em;
+
+/*angular show animations*/
+.section_three {
+	transition: opacity ease-in-out 0.3s;
+}
+.ng-hide {
+	opacity: 0
 }
 
 /*Flex*/

@@ -4,16 +4,28 @@ Contact: michael@erbwebdev.com
 Created: 9-1-2016
 =============================================================================*/
 
-var chatsApp = angular.module('ewdApp', ['ngclipboard','headroom','checklist-model']);
+var chatsApp = angular.module('ewdApp', ['ngclipboard','headroom','checklist-model','ngAnimate']);
 
 chatsApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
   // Free items --------------------------------------------------------------
   $scope.freeItems = [
-    'Basic Contacts Fields (Deleted)',
-    'Restore Owner Id/Person Notes',
-    'Update merchant account on orders/subscriptions to Infusionsoft Payments',
-    'Deleted Campaigns'
+    {
+      show: 'basic',
+      label:'Basic Contacts Fields (Deleted)'
+    },
+    {
+      show: 'owner_personNotes',
+      label:'Restore Owner Id/Person Notes'
+    },
+    {
+      show: '',
+      label:'Update merchant account on orders/subscriptions to Infusionsoft Payments'
+    },
+    {
+      show: '',
+      label: 'Deleted Campaigns'
+    }
   ]
 
   $scope.checkedFree = {
@@ -117,14 +129,13 @@ chatsApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   };
 
   // Merged Contacts item-----------------------------------------------------------
-  $scope.mergedContactsItems = [
-    'Merged Contacts'
-  ]
+  $scope.mergedContactsItems = 'Merged Contacts';
 
   $scope.checkedMergedContacts = {
     item: []
   }
 
+  $scope.showMerged = false;
   $scope.quoteMergedContacts = 0;
   $scope.isOneCheckedMergedContacts = function() {
     if($scope.checkedMergedContacts.item.length > 0){
@@ -132,8 +143,57 @@ chatsApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     }else {
       $scope.quoteMergedContacts = 0
     }
-    return $scope.quoteMergedContacts;
+
+    if($scope.showMerged === true){
+      $scope.showMerged = false;
+    }else {
+      $scope.showMerged = true;
+    }
   };
+
+  // Other group---------------------------------------------------------------------
+  $scope.other1 = "";
+
+  $scope.quoteOther1 = 0;
+  $scope.hasALength = function() {
+    // console.log('other1 value is: '+$scope.other1);
+    // console.log('other1 length is: '+$scope.other1.length);
+    if($scope.other1.length > 0){
+      $scope.quoteOther1 = 200
+    }else {
+      $scope.quoteOther1 = 0
+    }
+    // console.log('other1 value is now: '+$scope.other1);
+    // console.log('other1 length is now: '+$scope.other1.length);
+  };
+
+  // required checkboxes-------------------------------------------------------------
+  $scope.requiredItems = [
+    'Customer was able to confirm the Last Four digits of the card on file?*',
+    'Customer was able to confirm the billing address?*',
+    'I told the customer that if it costs more a database team member will be reaching out before the restore?*',
+    'I told the customer that the Data Restore would be 3-5 Business Days (unless approved by Database)?*'
+  ]
+
+  $scope.checkedRequiredItems = {
+    item: []
+  }
+
+  $scope.showStepThree = false; //Change back to false!
+  $scope.areAllCheckedRequiredItems = function() {
+
+    if($scope.checkedRequiredItems.item.length >= $scope.requiredItems.length){
+      $scope.showStepThree = true
+    }else {
+      $scope.showStepThree = false
+    }
+  };
+
+
+
+
+
+
 
 
   // button controls
@@ -150,6 +210,8 @@ chatsApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.isOneCheckedLargeSection();
     $scope.isOneCheckedMergedContacts();
   };
+
+  //
 
 
 }]);

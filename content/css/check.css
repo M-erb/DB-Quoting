@@ -20,6 +20,13 @@
   padding: 2em 3em;
 }
 
+.requried_checkboxes {
+  flex: 1 1 200px;
+}
+.requried_checkboxes label {
+  display: block;
+  margin-bottom: 1em;
+}
 
 /*window styles*/
 .window_outline {
